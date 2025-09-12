@@ -1,0 +1,277 @@
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #ffcc40, #ffd966);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+}
+.hero p {
+  font-size: 1.2rem;
+  color: #444;
+  margin-bottom: 1rem;
+}
+.hero button {
+  padding: 10px 25px;
+  font-size: 1rem;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.hero button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Feature Texts */
+.section-title {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+h5 {
+  font-weight: bold;
+  color: #222;
+}
+p {
+  color: #555;
+}
+
+/* Cards with hover effect */
+.card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+.btn-dark {
+  border-radius: 30px;
+  padding: 6px 20px;
+}
+
+/* Footer */
+footer {
+  background-color: #f1f1f1;
+  padding: 25px 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+  border-top: 1px solid #ddd;
+  margin-top: 16px;
+}
+.tips-page footer {
+  margin-top: 0 !important;
+}
+
+/* Navbar link hover & active */
+.navbar-brand {
+  font-family: "Georgia", serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.navbar-nav .nav-link {
+  font-weight: 500;
+  color: #333;
+  margin-left: 20px;
+}
+.navbar-nav .nav-link:hover {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Base typography */
+body {
+  font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Hero video layout (갭 방지 포함) */
+.hero-video-container {
+  position: relative;
+  height: 90vh; /* 기본 뷰포트 기준 */
+  min-height: 90svh; /* 모바일 브라우저 UI 변동 대응 */
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  display: block; /* 인라인 기본값으로 생기는 베이스라인 갭 제거 */
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+}
+
+/* --- Gap(여백) 제거 핵심 --- */
+/* 1) 랜덤 이미지 컨테이너: 줄간격/마진/패딩 제거 */
+.random-animal-wrap,
+.img-wrap {
+  line-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2) 이미지 자체를 블록화 + 가운데 정렬 + 베이스라인 영향 제거 */
+.random-animal-img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  vertical-align: top; /* 혹시 inline 상황에서도 여백 방지 */
+}
+
+/* (옵션) 모든 img에 공통적으로 적용하고 싶다면 아래 주석 해제
+img { display:block; max-width:100%; height:auto; }
+*/
+/* Contact 섹션 마지막 버튼 하단 여백 제거 */
+.contact-section form button[type="submit"] {
+  margin-bottom: 0 !important;
+}
+
+/* form 전체 패딩 제거 */
+.contact-section form {
+  padding-bottom: 0 !important;
+}
+
+/* 섹션 자체 바닥 여백 제거 */
+.contact-section {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* 페이지 공통: body 기본 여백 제거 */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 앱/메인 컨테이너의 마지막 자식 바닥 간격 제거 */
+#app > :last-child,
+main > :last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* 각 섹션 마지막 요소의 여백 제거 */
+section > :last-child,
+form > :last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Bootstrap row 세로 gutter 제거 */
+.row:last-child {
+  --bs-gutter-y: 0;
+}
+
+/* (선택) footer 위 간격 줄이기 */
+footer {
+  margin-top: 0 !important; /* 필요하면 원하는 값으로 */
+}
+/* 1) 전체 문서가 뷰포트를 가득 채우도록 기본 높이 보장 */
+:root,
+html {
+  height: 100%;
+}
+html {
+  overflow-y: auto;
+} /* 스크롤은 html이 담당 */
+
+/* 2) body가 항상 화면 높이 이상을 차지하도록 */
+body {
+  min-height: 100vh; /* 기본 */
+  min-height: 100dvh; /* 모바일 UI 변동 대응(지원 브라우저에서 우선) */
+  display: flex; /* 푸터를 바닥에 붙일 때 유용 */
+  flex-direction: column;
+}
+
+/* 3) Vue 앱/메인 영역이 남는 공간을 채우도록 */
+#app,
+main {
+  flex: 1 0 auto;
+  min-height: 0;
+}
+
+/* 4) 푸터가 위로 밀어올리지 않도록 (원하면 여백 조절) */
+footer {
+  margin-top: 0;
+}
+section > .container:last-child {
+  margin-bottom: 0 !important;
+}
+/* Buy Now (기존 유지) */
+.btn-accent {
+  background-color: #f4b400; /* 따뜻한 노랑 */
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: 500;
+  border: none;
+  transition: all 0.2s;
+}
+.btn-accent:hover {
+  background-color: #e0a200;
+}
+
+/* View Details - 버튼 스타일 */
+.btn-outline-accent {
+  background-color: transparent;
+  border: 2px solid #f4b400;
+  color: #f4b400;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.btn-outline-accent:hover {
+  background-color: #f4b400;
+  color: #fff;
+}
